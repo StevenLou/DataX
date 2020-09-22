@@ -31,7 +31,7 @@ import java.util.*;
 import static com.alibaba.datax.plugin.writer.emrfswriter.Constant.*;
 
 /**
- * @author xiejiajun
+ * @author xiejiajun & Liu Yanfeng
  */
 public  class EmrfsHelper {
     private static final Logger LOG = LoggerFactory.getLogger(EmrfsWriter.Job.class);
@@ -39,7 +39,9 @@ public  class EmrfsHelper {
     private JobConf conf = null;
     private org.apache.hadoop.conf.Configuration emrfsConf = null;
     private static final String S3_DEFAULTFS = "fs.defaultFS";
-
+    /**
+     * 获取EMRFS配置, By Liu Yanfeng
+     */
     void getFileSystem(String defaultFS, Configuration taskConfig){
         emrfsConf = new org.apache.hadoop.conf.Configuration();
 
@@ -79,7 +81,7 @@ public  class EmrfsHelper {
     }
 
     /**
-     * 校验并重写EMRFS配置
+     * 校验并重写EMRFS配置, By Liu Yanfeng
      */
     private void rewriteEmrfsConfig() {
         emrfsConf.set(Constant.S3_FS_IMPL,Constant.DEFAULT_S3_FS_IMPL);
